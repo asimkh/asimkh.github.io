@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Google Ads, Meta Ads, SEO, eCommerce growth, MarTech and digital project management services in Dubai, UAE.">
-<title>Services — Asim Khan | Marketing Ops &amp; MarTech</title>
+<title>Services | Asim Khan | Marketing Ops &amp; MarTech</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ===== Asim Khan — site stylesheet ===== */
+/* ===== Asim Khan: site stylesheet ===== */
 :root{
   --bg:#FAFAFA;
   --bg-alt:#F1F3F8;
@@ -80,6 +80,18 @@ nav.links a.active::after{
 }
 .nav-cta:hover{background:var(--coral-dark); transform:translateY(-1px);}
 @media (max-width:840px){ nav.links{display:none;} }
+.brand .tag-short{display:none;}
+.nav-cta .cta-short{display:none;}
+@media (max-width:840px){
+  .brand .tag-full{display:none;}
+  .brand .tag-short{display:inline; font-size:10.5px; letter-spacing:0.01em;}
+}
+@media (max-width:600px){
+  .nav-inner{padding:12px 20px; gap:12px;}
+  .nav-cta{font-size:12.5px; padding:9px 14px;}
+  .nav-cta .cta-full{display:none;}
+  .nav-cta .cta-short{display:inline;}
+}
 
 section{padding:88px 0;}
 section.tight{padding:64px 0;}
@@ -110,7 +122,7 @@ section.tight{padding:64px 0;}
 .btn-outline:hover{border-color:var(--primary); color:var(--primary);}
 
 /* ===== hero ===== */
-.hero{padding:76px 0 60px;}
+.hero{padding-top:76px; padding-bottom:60px;}
 .eyebrow{
   display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace;
   font-size:12px; letter-spacing:0.1em; color:var(--teal); text-transform:uppercase; margin-bottom:20px;
@@ -161,12 +173,16 @@ h1.headline .accent{color:var(--coral);}
 
 /* ===== footer ===== */
 footer{background:var(--ink); color:#B9BFD4; padding:56px 0 28px;}
-.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; margin-bottom:40px;}
-@media (max-width:760px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+.footer-grid{display:grid; grid-template-columns:1.8fr 1fr 1fr 1fr; gap:32px; margin-bottom:40px;}
+@media (max-width:760px){
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  footer .brand-block{grid-column:1 / -1;}
+  footer .brand-block p{max-width:none;}
+}
 footer h4{font-family:'Space Grotesk', sans-serif; color:#fff; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px;}
 footer ul{list-style:none; display:flex; flex-direction:column; gap:10px; font-size:14px;}
 footer ul a:hover{color:#fff;}
-footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:280px;}
+footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:360px;}
 .footer-bottom{
   border-top:1px solid rgba(255,255,255,0.1); padding-top:22px;
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12.5px; color:#7C84A0;
@@ -277,6 +293,87 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
 }
 .contact-band h3{font-family:'Space Grotesk', sans-serif; font-size:22px; margin-bottom:6px;}
 .contact-band p{color:#B9BFD4; font-size:14.5px;}
+
+/* ===== services explorer (tabbed) ===== */
+.svc-explorer{
+  display:grid; grid-template-columns:280px 1fr; border:1px solid var(--border); border-radius:var(--radius);
+  background:var(--surface); overflow:hidden; box-shadow:var(--shadow);
+}
+.svc-sidebar{background:var(--bg-alt); padding:14px; display:flex; flex-direction:column; gap:4px;}
+.svc-tab{
+  display:flex; align-items:center; gap:14px; padding:13px 14px; border-radius:10px; cursor:pointer;
+  font-weight:600; font-family:'Space Grotesk', sans-serif; font-size:14.5px; color:var(--body);
+  transition:background .15s ease, color .15s ease; border:none; background:transparent; text-align:left; width:100%;
+}
+.svc-tab .ico{
+  width:36px; height:36px; border-radius:9px; background:var(--surface); border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0;
+}
+.svc-tab.active{background:var(--surface); color:var(--ink); box-shadow:var(--shadow);}
+.svc-panel-wrap{padding:40px;}
+.svc-badge{
+  display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:11px; font-weight:600; color:var(--primary);
+  background:var(--primary-tint); border:1px solid #C7CDF7; padding:5px 12px; border-radius:16px;
+  text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;
+}
+.svc-panel h3{font-family:'Space Grotesk', sans-serif; font-size:clamp(22px,3vw,28px); color:var(--ink); margin-bottom:14px;}
+.svc-panel p.desc{font-size:15px; color:var(--body); margin-bottom:24px; max-width:560px;}
+.svc-check-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:12px 28px; background:var(--bg-alt);
+  border-radius:var(--radius-sm); padding:22px 26px; margin-bottom:26px;
+}
+.svc-check-grid div{font-size:13.5px; font-weight:600; color:var(--ink); display:flex; align-items:center; gap:10px;}
+.svc-check-grid div::before{content:''; width:7px; height:7px; border-radius:50%; background:var(--primary); flex-shrink:0;}
+.svc-ctas{display:flex; gap:12px; flex-wrap:wrap;}
+.svc-panel{display:none;}
+.svc-panel.active{display:block;}
+@media (max-width:760px){
+  .svc-explorer{grid-template-columns:1fr;}
+  .svc-sidebar{flex-direction:row; overflow-x:auto;}
+  .svc-tab{white-space:nowrap;}
+  .svc-panel-wrap{padding:24px;}
+  .svc-check-grid{grid-template-columns:1fr;}
+}
+
+/* ===== free review lead form ===== */
+.lead-form-card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:38px; max-width:520px; margin:0 auto; box-shadow:var(--shadow);
+}
+.lead-form-card .eyebrow{margin-bottom:14px;}
+.lead-form-card h2{font-family:'Space Grotesk', sans-serif; font-size:clamp(22px,3vw,28px); color:var(--ink); margin-bottom:12px;}
+.lead-form-card p.desc{font-size:14.5px; color:var(--body); margin-bottom:24px;}
+
+/* ===== hero + lead form split (home) ===== */
+.hero-grid{display:grid; grid-template-columns:1.12fr 0.88fr; gap:44px; align-items:start; margin-bottom:44px;}
+.hero-grid h1.headline{font-size:clamp(30px,3.4vw,42px); max-width:none;}
+.hero-grid .sub{font-size:16.5px; max-width:none;}
+.hero-grid .hero-ctas{margin-bottom:0;}
+.hero-grid .lead-form-card{max-width:none; margin:0; padding:30px;}
+.hero-grid .lead-form-card h2{font-size:clamp(20px,2.4vw,24px);}
+@media (max-width:960px){ .hero-grid{grid-template-columns:1fr; gap:36px;} }
+
+/* ===== segment toggle (B2B / B2C filter) ===== */
+.seg-toggle{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px;}
+.seg-btn{
+  font-family:'Space Grotesk', sans-serif; font-size:13.5px; font-weight:600; color:var(--body);
+  background:var(--surface); border:1.5px solid var(--border); padding:9px 18px; border-radius:24px;
+  cursor:pointer; transition:all .15s ease;
+}
+.seg-btn.active{background:var(--ink); color:#fff; border-color:var(--ink);}
+.seg-btn:not(.active):hover{border-color:var(--primary); color:var(--primary);}
+
+/* ===== portfolio segment cards ===== */
+.portfolio-card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:32px; display:flex; flex-direction:column; height:100%;
+}
+.portfolio-card .seg-icon{
+  width:48px; height:48px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  font-size:22px; margin-bottom:16px;
+}
+.portfolio-card h3{font-family:'Space Grotesk', sans-serif; font-size:19px; color:var(--ink); margin-bottom:8px;}
+.portfolio-card p{font-size:14px; color:var(--body); margin-bottom:18px; flex:1;}
 </style>
 </head>
 <body>
@@ -286,7 +383,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
       <span class="mark">AK</span>
       <span>
         <span class="name" style="display:block;">Asim Khan</span>
-        <span class="tag">Marketing Operations | Digital Project Lead | Ai Growth Operator</span>
+        <span class="tag"><span class="tag-full">Marketing Operations | Digital Project Lead | AI Growth Operator</span><span class="tag-short">MarTech, Project Lead &amp; AI Growth</span></span>
       </span>
     </a>
     <nav class="links">
@@ -296,7 +393,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
       <a href="blog" class="">Blog</a>
       <a href="contact" class="">Contact</a>
     </nav>
-    <a class="nav-cta" href="https://wa.me/971543599147?text=Hi%20Asim%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="nav-cta" href="https://wa.me/971543599147?text=Hi%20Asim%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener"><span class="cta-full">Message on WhatsApp</span><span class="cta-short">WhatsApp</span></a>
   </div>
 </header>
 <main>
@@ -307,7 +404,8 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
     <p class="sub">No account manager relay, no junior learning on your budget. Every engagement below is run personally, drawing on 10+ years across enterprise martech, agency traffic management, and hands-on paid media.</p>
     <div class="hero-ctas">
       <a class="btn-primary" href="https://wa.me/971543599147?text=Hi%20Asim%2C%20I%27d%20like%20a%20free%20account%20review." target="_blank" rel="noopener">Get a free account review →</a>
-      <a class="btn-outline" href="contact">Contact form</a>
+      <a class="btn-outline" href="https://calendar.app.google/YNcuqpXbYwRLfmje9" target="_blank" rel="noopener">Book a call</a>
+     
     </div>
   </section>
 
@@ -330,7 +428,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
         <div class="card">
           <div class="icon">📱</div>
           <h3>Meta &amp; Social Media Ads</h3>
-          <p>Facebook, Instagram, and TikTok campaigns covering the full funnel — cold reach through retargeting.</p>
+          <p>Facebook, Instagram, and TikTok campaigns covering the full funnel, from cold reach through retargeting.</p>
           <ul>
             <li>Pixel &amp; Conversions API setup</li>
             <li>Audience &amp; lookalike building</li>
@@ -342,7 +440,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
         <div class="card">
           <div class="icon">🔍</div>
           <h3>SEO &amp; Organic Growth</h3>
-          <p>Technical and content SEO that compounds — the approach behind the +40% organic traffic result on the case studies page.</p>
+          <p>Technical and content SEO that compounds. The approach behind the +40% organic traffic result on the case studies page.</p>
           <ul>
             <li>Technical SEO audit &amp; fixes</li>
             <li>On-page &amp; content optimization</li>
@@ -354,7 +452,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
         <div class="card">
           <div class="icon">🛒</div>
           <h3>eCommerce &amp; Shopify Growth</h3>
-          <p>Store setup, CRO, and paid/organic growth for Shopify brands — including scaling a Dubai store to $209K in revenue.</p>
+          <p>Store setup, CRO, and paid/organic growth for Shopify brands, including scaling a Dubai store to $209K in revenue.</p>
           <ul>
             <li>Shopify store setup &amp; audit</li>
             <li>Conversion rate optimization</li>
@@ -366,7 +464,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
         <div class="card">
           <div class="icon">⚙️</div>
           <h3>MarTech &amp; Automation</h3>
-          <p>CRM setup and marketing-stack ownership — HubSpot, Pipedrive, GoHighLevel — plus workflow automation that removes manual work.</p>
+          <p>CRM setup and marketing-stack ownership: HubSpot, Pipedrive, GoHighLevel, plus workflow automation that removes manual work.</p>
           <ul>
             <li>CRM setup &amp; integration</li>
             <li>Vendor &amp; budget management</li>
@@ -378,7 +476,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
         <div class="card">
           <div class="icon">🗂️</div>
           <h3>Digital Project &amp; Traffic Management</h3>
-          <p>Overflow delivery leadership for agencies and in-house teams — resourcing, scope, and risk management for enterprise campaigns.</p>
+          <p>Overflow delivery leadership for agencies and in-house teams. Resourcing, scope, and risk management for enterprise campaigns.</p>
           <ul>
             <li>Resource &amp; traffic scheduling</li>
             <li>Scope &amp; risk management</li>
@@ -404,7 +502,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
         </div>
         <div class="why-item">
           <div class="num">02</div>
-          <div><h4>Tracked, not guessed</h4><p>Conversion tracking and reporting are set up before spend goes live — every dirham accounted for.</p></div>
+          <div><h4>Tracked, not guessed</h4><p>Conversion tracking and reporting are set up before spend goes live. Every dirham is accounted for.</p></div>
         </div>
         <div class="why-item">
           <div class="num">03</div>
@@ -412,7 +510,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
         </div>
         <div class="why-item">
           <div class="num">04</div>
-          <div><h4>Direct communication</h4><p>WhatsApp and call access to me directly — no account manager relay in between.</p></div>
+          <div><h4>Direct communication</h4><p>WhatsApp and call access to me directly. No account manager relay in between.</p></div>
         </div>
       </div>
     </div>
@@ -423,7 +521,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
       <div class="contact-band">
         <div>
           <h3>Not sure which service fits?</h3>
-          <p>Send your current setup and goals — I'll tell you where to start.</p>
+          <p>Send your current setup and goals. I'll tell you where to start.</p>
         </div>
         <a class="btn-primary" href="contact">Fill in the contact form →</a>
       </div>
@@ -439,7 +537,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
           <span class="mark">AK</span>
           <span class="name" style="color:#fff;">Asim Khan</span>
         </div>
-        <p>Marketing operations &amp; MarTech leader running growth systems for Dubai and GCC businesses.</p>
+        <p>Marketing Operations, Digital Project Lead, and AI Growth Operator running systems for businesses across Dubai and the GCC, while collaborating with US and remote clients worldwide.</p>
       </div>
       <div>
         <h4>Site</h4>
@@ -457,14 +555,16 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
           <li><a href="tel:+971543599147">+971 54 359 9147</a></li>
           <li><a href="mailto:slickyads@gmail.com">slickyads@gmail.com</a></li>
           <li><a href="https://wa.me/971543599147" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://calendar.app.google/YNcuqpXbYwRLfmje9" target="_blank" rel="noopener">Book a call</a></li>
         </ul>
       </div>
       <div>
         <h4>Elsewhere</h4>
         <ul>
-          <li><a href="https://www.instagram.com/slickyads/" target="_blank" rel="noopener">Instagram — @slickyads</a></li>
+          <li><a href="https://www.instagram.com/slickyads/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://linkedin.com/in/asimkh" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://medium.com/@asimkh" target="_blank" rel="noopener">Medium</a></li>
+        <li><a href="portfolio">Portfolio</a></li>
           <li><a href="https://github.com/asimkh" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
       </div>

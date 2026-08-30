@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Real results from client and personal marketing projects.">
-<title>Case Studies — Asim Khan | Marketing Ops &amp; MarTech</title>
+<title>Case Studies | Asim Khan | Marketing Ops &amp; MarTech</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ===== Asim Khan — site stylesheet ===== */
+/* ===== Asim Khan: site stylesheet ===== */
 :root{
   --bg:#FAFAFA;
   --bg-alt:#F1F3F8;
@@ -80,6 +80,18 @@ nav.links a.active::after{
 }
 .nav-cta:hover{background:var(--coral-dark); transform:translateY(-1px);}
 @media (max-width:840px){ nav.links{display:none;} }
+.brand .tag-short{display:none;}
+.nav-cta .cta-short{display:none;}
+@media (max-width:840px){
+  .brand .tag-full{display:none;}
+  .brand .tag-short{display:inline; font-size:10.5px; letter-spacing:0.01em;}
+}
+@media (max-width:600px){
+  .nav-inner{padding:12px 20px; gap:12px;}
+  .nav-cta{font-size:12.5px; padding:9px 14px;}
+  .nav-cta .cta-full{display:none;}
+  .nav-cta .cta-short{display:inline;}
+}
 
 section{padding:88px 0;}
 section.tight{padding:64px 0;}
@@ -110,7 +122,7 @@ section.tight{padding:64px 0;}
 .btn-outline:hover{border-color:var(--primary); color:var(--primary);}
 
 /* ===== hero ===== */
-.hero{padding:76px 0 60px;}
+.hero{padding-top:76px; padding-bottom:60px;}
 .eyebrow{
   display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace;
   font-size:12px; letter-spacing:0.1em; color:var(--teal); text-transform:uppercase; margin-bottom:20px;
@@ -161,12 +173,16 @@ h1.headline .accent{color:var(--coral);}
 
 /* ===== footer ===== */
 footer{background:var(--ink); color:#B9BFD4; padding:56px 0 28px;}
-.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; margin-bottom:40px;}
-@media (max-width:760px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+.footer-grid{display:grid; grid-template-columns:1.8fr 1fr 1fr 1fr; gap:32px; margin-bottom:40px;}
+@media (max-width:760px){
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  footer .brand-block{grid-column:1 / -1;}
+  footer .brand-block p{max-width:none;}
+}
 footer h4{font-family:'Space Grotesk', sans-serif; color:#fff; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px;}
 footer ul{list-style:none; display:flex; flex-direction:column; gap:10px; font-size:14px;}
 footer ul a:hover{color:#fff;}
-footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:280px;}
+footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:360px;}
 .footer-bottom{
   border-top:1px solid rgba(255,255,255,0.1); padding-top:22px;
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12.5px; color:#7C84A0;
@@ -277,6 +293,87 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
 }
 .contact-band h3{font-family:'Space Grotesk', sans-serif; font-size:22px; margin-bottom:6px;}
 .contact-band p{color:#B9BFD4; font-size:14.5px;}
+
+/* ===== services explorer (tabbed) ===== */
+.svc-explorer{
+  display:grid; grid-template-columns:280px 1fr; border:1px solid var(--border); border-radius:var(--radius);
+  background:var(--surface); overflow:hidden; box-shadow:var(--shadow);
+}
+.svc-sidebar{background:var(--bg-alt); padding:14px; display:flex; flex-direction:column; gap:4px;}
+.svc-tab{
+  display:flex; align-items:center; gap:14px; padding:13px 14px; border-radius:10px; cursor:pointer;
+  font-weight:600; font-family:'Space Grotesk', sans-serif; font-size:14.5px; color:var(--body);
+  transition:background .15s ease, color .15s ease; border:none; background:transparent; text-align:left; width:100%;
+}
+.svc-tab .ico{
+  width:36px; height:36px; border-radius:9px; background:var(--surface); border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0;
+}
+.svc-tab.active{background:var(--surface); color:var(--ink); box-shadow:var(--shadow);}
+.svc-panel-wrap{padding:40px;}
+.svc-badge{
+  display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:11px; font-weight:600; color:var(--primary);
+  background:var(--primary-tint); border:1px solid #C7CDF7; padding:5px 12px; border-radius:16px;
+  text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;
+}
+.svc-panel h3{font-family:'Space Grotesk', sans-serif; font-size:clamp(22px,3vw,28px); color:var(--ink); margin-bottom:14px;}
+.svc-panel p.desc{font-size:15px; color:var(--body); margin-bottom:24px; max-width:560px;}
+.svc-check-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:12px 28px; background:var(--bg-alt);
+  border-radius:var(--radius-sm); padding:22px 26px; margin-bottom:26px;
+}
+.svc-check-grid div{font-size:13.5px; font-weight:600; color:var(--ink); display:flex; align-items:center; gap:10px;}
+.svc-check-grid div::before{content:''; width:7px; height:7px; border-radius:50%; background:var(--primary); flex-shrink:0;}
+.svc-ctas{display:flex; gap:12px; flex-wrap:wrap;}
+.svc-panel{display:none;}
+.svc-panel.active{display:block;}
+@media (max-width:760px){
+  .svc-explorer{grid-template-columns:1fr;}
+  .svc-sidebar{flex-direction:row; overflow-x:auto;}
+  .svc-tab{white-space:nowrap;}
+  .svc-panel-wrap{padding:24px;}
+  .svc-check-grid{grid-template-columns:1fr;}
+}
+
+/* ===== free review lead form ===== */
+.lead-form-card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:38px; max-width:520px; margin:0 auto; box-shadow:var(--shadow);
+}
+.lead-form-card .eyebrow{margin-bottom:14px;}
+.lead-form-card h2{font-family:'Space Grotesk', sans-serif; font-size:clamp(22px,3vw,28px); color:var(--ink); margin-bottom:12px;}
+.lead-form-card p.desc{font-size:14.5px; color:var(--body); margin-bottom:24px;}
+
+/* ===== hero + lead form split (home) ===== */
+.hero-grid{display:grid; grid-template-columns:1.12fr 0.88fr; gap:44px; align-items:start; margin-bottom:44px;}
+.hero-grid h1.headline{font-size:clamp(30px,3.4vw,42px); max-width:none;}
+.hero-grid .sub{font-size:16.5px; max-width:none;}
+.hero-grid .hero-ctas{margin-bottom:0;}
+.hero-grid .lead-form-card{max-width:none; margin:0; padding:30px;}
+.hero-grid .lead-form-card h2{font-size:clamp(20px,2.4vw,24px);}
+@media (max-width:960px){ .hero-grid{grid-template-columns:1fr; gap:36px;} }
+
+/* ===== segment toggle (B2B / B2C filter) ===== */
+.seg-toggle{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px;}
+.seg-btn{
+  font-family:'Space Grotesk', sans-serif; font-size:13.5px; font-weight:600; color:var(--body);
+  background:var(--surface); border:1.5px solid var(--border); padding:9px 18px; border-radius:24px;
+  cursor:pointer; transition:all .15s ease;
+}
+.seg-btn.active{background:var(--ink); color:#fff; border-color:var(--ink);}
+.seg-btn:not(.active):hover{border-color:var(--primary); color:var(--primary);}
+
+/* ===== portfolio segment cards ===== */
+.portfolio-card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:32px; display:flex; flex-direction:column; height:100%;
+}
+.portfolio-card .seg-icon{
+  width:48px; height:48px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  font-size:22px; margin-bottom:16px;
+}
+.portfolio-card h3{font-family:'Space Grotesk', sans-serif; font-size:19px; color:var(--ink); margin-bottom:8px;}
+.portfolio-card p{font-size:14px; color:var(--body); margin-bottom:18px; flex:1;}
 </style>
 </head>
 <body>
@@ -286,7 +383,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
       <span class="mark">AK</span>
       <span>
         <span class="name" style="display:block;">Asim Khan</span>
-        <span class="tag">Marketing Operations | Digital Project Lead | Ai Growth Operator</span>
+        <span class="tag"><span class="tag-full">Marketing Operations | Digital Project Lead | AI Growth Operator</span><span class="tag-short">MarTech, Project Lead &amp; AI Growth</span></span>
       </span>
     </a>
     <nav class="links">
@@ -296,7 +393,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
       <a href="blog" class="">Blog</a>
       <a href="contact" class="">Contact</a>
     </nav>
-    <a class="nav-cta" href="https://wa.me/971543599147?text=Hi%20Asim%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="nav-cta" href="https://wa.me/971543599147?text=Hi%20Asim%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener"><span class="cta-full">Message on WhatsApp</span><span class="cta-short">WhatsApp</span></a>
   </div>
 </header>
 <main>
@@ -304,7 +401,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
   <section class="hero wrap" style="padding-bottom:20px;">
     <span class="eyebrow"><span class="pulse"></span>Case Studies</span>
     <h1 class="headline" style="font-size:clamp(30px,4.4vw,46px);">Real numbers, <span class="accent">not vanity metrics.</span></h1>
-    <p class="sub">A selection of results from client and personal projects — every number below is sourced and linked, not a vanity metric.</p>
+    <p class="sub">A selection of results from client and personal projects. Every number below is sourced and linked, not a vanity metric.</p>
     <div class="trust-strip">
       <div class="trust-item"><div class="v">10+</div><div class="l">Years experience</div></div>
       <div class="trust-item"><div class="v">+40%</div><div class="l">Organic traffic growth</div></div>
@@ -323,19 +420,25 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
         <h2>What the work has produced.</h2>
       </div>
 
-      <div style="display:flex; flex-direction:column; gap:20px;">
+      <div class="seg-toggle" role="tablist" aria-label="Filter case studies">
+        <button class="seg-btn active" data-seg="all">All Work</button>
+        <button class="seg-btn" data-seg="b2b">B2B: Lead Generation</button>
+        <button class="seg-btn" data-seg="b2c">B2C: eCommerce &amp; Retail</button>
+      </div>
 
-        <div class="case-card">
+      <div id="case-list" style="display:flex; flex-direction:column; gap:20px;">
+
+        <div class="case-card" data-seg="b2c">
           <div class="case-stat"><div class="num">$209K</div><div class="lbl">Revenue scaled</div></div>
           <div>
             <div class="meta">eCommerce · Shopify · Dubai, UAE</div>
             <h3>Scaling a Shopify store to $209K in revenue</h3>
-            <p>Grew a Dubai-based Shopify store's revenue without relying on aggressively increasing ad spend — the full breakdown of the approach is published on the blog.</p>
-            <div class="src">Source: <a href="https://asimkh.medium.com/how-we-scaled-ecommerce-store-to-209k-revenue-in-dubai-uae-636528258e6e" target="_blank" rel="noopener">Medium — "How We Scaled a Shopify Ecommerce Store to $209K Revenue in Dubai UAE"</a></div>
+            <p>Grew a Dubai-based Shopify store's revenue without relying on aggressively increasing ad spend. The full breakdown of the approach is published on the blog.</p>
+            <div class="src">Source: <a href="https://asimkh.medium.com/how-we-scaled-ecommerce-store-to-209k-revenue-in-dubai-uae-636528258e6e" target="_blank" rel="noopener">Medium: "How We Scaled a Shopify Ecommerce Store to $209K Revenue in Dubai UAE"</a></div>
           </div>
         </div>
 
-        <div class="case-card">
+        <div class="case-card" data-seg="b2b">
           <div class="case-stat"><div class="num">+40%</div><div class="lbl">Organic traffic</div></div>
           <div>
             <div class="meta">SEO · Slicky Media · Dubai, UAE</div>
@@ -345,7 +448,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
           </div>
         </div>
 
-        <div class="case-card">
+        <div class="case-card" data-seg="b2b">
           <div class="case-stat"><div class="num">+30%</div><div class="lbl">Conversion lift</div></div>
           <div>
             <div class="meta">Paid Media · Slicky Media · Dubai, UAE</div>
@@ -355,7 +458,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
           </div>
         </div>
 
-        <div class="case-card">
+        <div class="case-card" data-seg="ops">
           <div class="case-stat"><div class="num">+15%</div><div class="lbl">Team throughput</div></div>
           <div>
             <div class="meta">Operations · Create Group · UAE, KSA, Egypt</div>
@@ -365,13 +468,13 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
           </div>
         </div>
 
-        <div class="case-card">
+        <div class="case-card" data-seg="b2b">
           <div class="case-stat"><div class="num">Dubai</div><div class="lbl">Real estate leads</div></div>
           <div>
             <div class="meta">Lead Generation · Real Estate · Dubai, UAE</div>
             <h3>Generating qualified real estate leads in a competitive market</h3>
-            <p>A lead-generation approach built for Dubai's real estate sector, where qualified-lead volume — not raw traffic — decides whether a campaign pays off.</p>
-            <div class="src">Source: <a href="https://asimkh.medium.com/create-qualified-real-estate-leads-dubai-d9c955c93929" target="_blank" rel="noopener">Medium — "Create Qualified Real Estate Leads"</a></div>
+            <p>A lead-generation approach built for Dubai's real estate sector, where qualified-lead volume, not raw traffic, decides whether a campaign pays off.</p>
+            <div class="src">Source: <a href="https://asimkh.medium.com/create-qualified-real-estate-leads-dubai-d9c955c93929" target="_blank" rel="noopener">Medium: "Create Qualified Real Estate Leads"</a></div>
           </div>
         </div>
 
@@ -380,6 +483,30 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
   </section>
 
   <section class="alt-bg">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag">Portfolio</span>
+        <h2>Creatives, landing pages, and reports.</h2>
+        <p>Visual work samples live in one portfolio deck, organized by who it was built for.</p>
+      </div>
+      <div class="grid-2">
+        <div class="portfolio-card">
+          <div class="seg-icon" style="background:var(--primary-tint); color:var(--primary);">🎯</div>
+          <h3>B2B: Lead Generation</h3>
+          <p>Campaign structures, landing pages, and reporting built for real estate, professional services, and other consideration-driven, lead-gen businesses.</p>
+          <a class="btn-outline" href="https://canva.link/digitaldev99" target="_blank" rel="noopener">View portfolio →</a>
+        </div>
+        <div class="portfolio-card">
+          <div class="seg-icon" style="background:#FFF1EC; color:var(--coral);">🛍️</div>
+          <h3>B2C: eCommerce &amp; Retail</h3>
+          <p>Ad creatives, product pages, and funnel work for Shopify and retail brands selling directly to consumers.</p>
+          <a class="btn-outline" href="https://canva.link/digitaldev99" target="_blank" rel="noopener">View portfolio →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <div class="wrap">
       <div class="section-head" style="margin:0 auto; text-align:center; max-width:600px;">
         <span class="tag">Want the detail?</span>
@@ -393,6 +520,25 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
   </section>
 
 </main>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.seg-btn');
+  var cards = document.querySelectorAll('#case-list .case-card');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var seg = btn.dataset.seg;
+      cards.forEach(function(card){
+        var show = (seg === 'all') || (card.dataset.seg === seg);
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -401,7 +547,7 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
           <span class="mark">AK</span>
           <span class="name" style="color:#fff;">Asim Khan</span>
         </div>
-        <p>Marketing operations &amp; MarTech leader running growth systems for Dubai and GCC businesses.</p>
+        <p>Marketing Operations, Digital Project Lead, and AI Growth Operator running systems for businesses across Dubai and the GCC, while collaborating with US and remote clients worldwide.</p>
       </div>
       <div>
         <h4>Site</h4>
@@ -419,14 +565,16 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
           <li><a href="tel:+971543599147">+971 54 359 9147</a></li>
           <li><a href="mailto:slickyads@gmail.com">slickyads@gmail.com</a></li>
           <li><a href="https://wa.me/971543599147" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://calendar.app.google/YNcuqpXbYwRLfmje9" target="_blank" rel="noopener">Book a call</a></li>
         </ul>
       </div>
       <div>
         <h4>Elsewhere</h4>
         <ul>
-          <li><a href="https://www.instagram.com/slickyads/" target="_blank" rel="noopener">Instagram — @slickyads</a></li>
+          <li><a href="https://www.instagram.com/slickyads/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://linkedin.com/in/asimkh" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://medium.com/@asimkh" target="_blank" rel="noopener">Medium</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
           <li><a href="https://github.com/asimkh" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
       </div>

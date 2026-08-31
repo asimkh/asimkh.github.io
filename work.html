@@ -72,7 +72,7 @@ header.nav{
 }
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
 .brand .mark{
-  width:34px; height:34px; border-radius:8px; background:var(--primary);
+  width:34px; height:34px; border-radius:8px; /*background:var(--primary);*/
   color:#fff; display:flex; align-items:center; justify-content:center;
   font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:14px; flex-shrink:0;
 }
@@ -206,7 +206,10 @@ footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:
   border-top:1px solid rgba(255,255,255,0.1); padding-top:22px;
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12.5px; color:#7C84A0;
 }
-
+.footer-logo {
+    width: 34px;
+    height: 34px;
+}
 /* ===== trust badges row ===== */
 .badge-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
 .badge{
@@ -609,7 +612,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-grid">
       <div class="brand-block">
         <div class="brand" style="text-decoration:none;">
-          <span class="mark">AK</span>
+          <img src="assets/slickyads_logo1.png" alt="Footer Logo" class="brand-logo footer-logo">
           <span class="name" style="color:#fff;">Asim Khan</span>
         </div>
         <p>Marketing Operations, Digital Project Lead, and AI Growth Operator running systems for businesses across Dubai and the GCC, while collaborating with US and remote clients worldwide.</p>

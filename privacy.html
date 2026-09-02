@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Privacy Policy for slickyads.com — how Asim Khan (Slicky Ads) collects, uses, and protects your information.">
+<title>Privacy Policy | Asim Khan | Marketing Technologist &amp; Marketing Operations</title>
+
+<link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
+<link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="assets/favicon/site.webmanifest" />
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Asim Khan">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://asimkh.github.io/privacy">
+<meta property="og:title" content="Privacy Policy | Asim Khan">
+<meta property="og:description" content="Privacy Policy for slickyads.com — how Asim Khan (Slicky Ads) collects, uses, and protects your information.">
+<meta property="fb:app_id" content="4500643603539743" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Asim Khan: site stylesheet ===== */
+:root{
+  --bg:#FAFAFA;
+  --bg-alt:#F1F3F8;
+  --surface:#FFFFFF;
+  --border:#E4E7EF;
+  --ink:#101322;
+  --body:#4A5169;
+  --muted:#8087A0;
+  --primary:#2438C7;
+  --primary-dark:#182A94;
+  --primary-tint:#EEF0FD;
+  --coral:#FF6A4D;
+  --coral-dark:#E5502F;
+  --teal:#0F9D8E;
+  --teal-tint:#E7F7F5;
+  --radius:10px;
+  --radius-sm:6px;
+  --shadow:0 1px 2px rgba(16,19,34,0.04), 0 8px 24px rgba(16,19,34,0.05);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg); color:var(--body);
+  font-family:'Inter', sans-serif; font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+.display{font-family:'Space Grotesk', sans-serif;}
+.mono{font-family:'IBM Plex Mono', monospace;}
+.wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+::selection{background:var(--coral); color:#fff;}
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+  outline:2px solid var(--primary); outline-offset:2px;
+}
+
+/* ===== nav ===== */
+header.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(250,250,250,0.9); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:1120px; margin:0 auto; padding:16px 32px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+.brand img.mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.brand .name{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15.5px; color:var(--ink); line-height:1.2;}
+.brand .tag{font-size:11px; color:var(--muted); letter-spacing:0.03em;}
+nav.links{display:flex; gap:28px; font-size:14px;}
+nav.links a{color:var(--body); font-weight:500; transition:color .15s ease; position:relative;}
+nav.links a:hover{color:var(--primary);}
+nav.links a.active{color:var(--primary);}
+nav.links a.active::after{
+  content:''; position:absolute; left:0; right:0; bottom:-18px; height:2px; background:var(--coral);
+}
+.nav-cta{
+  font-size:13.5px; font-weight:600; color:#fff; background:var(--coral);
+  padding:10px 18px; border-radius:24px; white-space:nowrap; transition:background .15s ease, transform .15s ease;
+}
+.nav-cta:hover{background:var(--coral-dark); transform:translateY(-1px);}
+@media (max-width:840px){ nav.links{display:none;} }
+.brand .tag-short{display:none;}
+.nav-cta .cta-short{display:none;}
+@media (max-width:840px){
+  .brand .tag-full{display:none;}
+  .brand .tag-short{display:inline; font-size:10.5px; letter-spacing:0.01em;}
+}
+@media (max-width:600px){
+  .nav-inner{padding:12px 20px; gap:12px;}
+  .nav-cta{font-size:12.5px; padding:9px 14px;}
+  .nav-cta .cta-full{display:none;}
+  .nav-cta .cta-short{display:inline;}
+}
+
+section{padding:88px 0;}
+section.tight{padding:64px 0;}
+.alt-bg{background:var(--bg-alt);}
+
+/* ===== buttons ===== */
+.btn-primary, .btn-ghost, .btn-outline{
+  font-size:14.5px; font-weight:600; padding:14px 24px; border-radius:28px;
+  display:inline-flex; align-items:center; gap:8px; transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+  border:none; cursor:pointer; font-family:inherit;
+}
+.btn-primary{background:var(--coral); color:#fff;}
+.btn-primary:hover{background:var(--coral-dark); transform:translateY(-1px);}
+.btn-outline{background:transparent; border:1.5px solid var(--border); color:var(--ink);}
+.btn-outline:hover{border-color:var(--primary); color:var(--primary);}
+
+/* ===== hero (page header) ===== */
+.hero{padding-top:76px; padding-bottom:20px;}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace;
+  font-size:12px; letter-spacing:0.1em; color:var(--teal); text-transform:uppercase; margin-bottom:20px;
+  background:var(--teal-tint); padding:6px 12px; border-radius:20px;
+}
+.eyebrow .pulse{width:7px; height:7px; border-radius:50%; background:var(--teal);}
+h1.headline{
+  font-family:'Space Grotesk', sans-serif; font-weight:700; color:var(--ink);
+  line-height:1.08; letter-spacing:-0.015em; max-width:820px; margin-bottom:18px;
+}
+.sub{font-size:17px; color:var(--body); max-width:640px; margin-bottom:14px;}
+.doc-meta{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted);}
+
+/* ===== footer ===== */
+footer{background:var(--ink); color:#B9BFD4; padding:56px 0 28px;}
+.footer-grid{display:grid; grid-template-columns:1.8fr 1fr 1fr 1fr; gap:32px; margin-bottom:40px;}
+@media (max-width:760px){
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  footer .brand-block{grid-column:1 / -1;}
+  footer .brand-block p{max-width:none;}
+}
+footer h4{font-family:'Space Grotesk', sans-serif; color:#fff; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px;}
+footer ul{list-style:none; display:flex; flex-direction:column; gap:10px; font-size:14px;}
+footer ul a:hover{color:#fff;}
+footer .brand-block p{font-size:14px; color:#9BA2BC; margin-top:12px; max-width:360px;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.1); padding-top:22px;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12.5px; color:#7C84A0;
+}
+.footer-bottom a{color:#9BA2BC;}
+.footer-bottom a:hover{color:#fff;}
+.footer-logo { width: 34px; height: 34px; }
+
+.wa-float{
+  position:fixed; bottom:24px; right:24px; z-index:60; width:58px; height:58px; border-radius:50%;
+  background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(37,211,102,0.4);
+  transition:transform .15s ease;
+}
+.wa-float:hover{transform:scale(1.06);}
+
+/* ===== legal page specifics ===== */
+.legal-wrap{max-width:760px;}
+.legal-toc{
+  display:flex; flex-wrap:wrap; gap:8px 18px; padding:18px 0 0;
+  font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--muted);
+}
+.legal-toc a{color:var(--muted); transition:color .15s ease;}
+.legal-toc a:hover{color:var(--primary);}
+.legal-section{margin-bottom:40px; scroll-margin-top:90px;}
+.legal-section h2{
+  display:flex; align-items:center; gap:14px;
+  font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:20px; color:var(--ink);
+  margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid var(--border);
+}
+.legal-section h2 .num{
+  font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:14px; color:var(--coral);
+  width:32px; height:32px; border-radius:8px; background:#FFF1EC; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.legal-section h3{font-family:'Space Grotesk', sans-serif; font-size:15px; font-weight:600; color:var(--ink); margin:18px 0 8px;}
+.legal-section p{font-size:15px; color:var(--body); margin-bottom:14px; max-width:680px;}
+.legal-section ul{list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:14px;}
+.legal-section ul li{font-size:14.5px; color:var(--body); padding-left:20px; position:relative; max-width:680px;}
+.legal-section ul li::before{content:'→'; position:absolute; left:0; color:var(--coral); font-weight:700;}
+.legal-table{width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:16px;}
+.legal-table th, .legal-table td{padding:14px 16px; text-align:left; font-size:14px; border-bottom:1px solid var(--border); color:var(--body);}
+.legal-table th{font-family:'Space Grotesk', sans-serif; font-size:12.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em; background:var(--bg-alt);}
+.legal-table tr:last-child td{border-bottom:none;}
+.legal-contact{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:26px 28px; box-shadow:var(--shadow);
+}
+.legal-contact p{margin-bottom:6px; font-size:14.5px;}
+.legal-contact p:last-child{margin-bottom:0;}
+mark.ph{background:var(--teal-tint); color:#0B6E62; padding:0 4px; border-radius:4px; font-style:normal;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <img src="assets/slickyads_logo.png" alt="Asim Khan" class="mark">
+      <span>
+        <span class="name" style="display:block;">Asim Khan</span>
+        <span class="tag"><span class="tag-full">Marketing Operations | Digital Project Lead | AI Growth Operator</span><span class="tag-short">MarTech, Project Lead &amp; AI Growth</span></span>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="/" class="">Home</a>
+      <a href="services" class="">Services</a>
+      <a href="case-studies" class="">Case Studies</a>
+      <a href="blog" class="">Blog</a>
+      <a href="contact" class="">Contact</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/971543599147?text=Hi%20Asim%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener"><span class="cta-full">Message on WhatsApp</span><span class="cta-short">WhatsApp</span></a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero wrap">
+    <span class="eyebrow"><span class="pulse"></span>Legal</span>
+    <h1 class="headline" style="font-size:clamp(30px,4.4vw,44px);">Privacy Policy</h1>
+    <p class="sub">How Asim Khan, operating as Slicky Ads, collects, uses, and protects information from visitors, leads, and clients of slickyads.com.</p>
+   <!--  <p class="doc-meta">Effective date: September 1, 2026 · Last updated: September 1, 2026</p> -->
+    <nav class="legal-toc" aria-label="Jump to section">
+      <a href="#who-we-are">Who we are</a>
+      <a href="#info-we-collect">Information we collect</a>
+      <a href="#how-we-use">How it's used</a>
+      <a href="#cookies">Cookies</a>
+      <a href="#sharing">Sharing</a>
+      <a href="#retention">Retention</a>
+      <a href="#rights">Your rights</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="legal-wrap">
+
+        <div class="legal-section" id="who-we-are">
+          <h2><span class="num">01</span>Who we are</h2>
+          <p>slickyads.com is operated by Asim Khan, a Dubai-based Marketing Operations Manager and AI Growth Operator trading as Slicky Ads ("Slicky Ads," "I," "we," "us"). This site showcases services, case studies, and a contact channel for marketing operations, PPC, SEO, SMM, and automation-driven growth work for agencies and brands.</p>
+          <p>For visitors and leads, I am the data controller for the information described below. Where I manage advertising accounts or client platforms under a signed engagement, the client remains the controller of their own account and customer data, and I act on their instructions.</p>
+        </div>
+
+        <div class="legal-section" id="info-we-collect">
+          <h2><span class="num">02</span>Information I collect</h2>
+          <h3>Information you provide directly</h3>
+          <ul>
+            <li>Name, email, and phone/WhatsApp number submitted via the contact form, booking link, or a direct message</li>
+            <li>Company name, website, industry, and project details shared during a consultation call or the free account review request</li>
+            <li>Content of any correspondence sent by email, WhatsApp, or through the site</li>
+            <li>Where you become a client: access permissions you grant to Google Ads, Meta Ads Manager, Google Analytics, or similar platforms, and billing details for invoicing</li>
+          </ul>
+          <h3>Information collected automatically</h3>
+          <ul>
+            <li>IP address, browser and device type, and general location</li>
+            <li>Pages visited, referring source, and time on page</li>
+            <li>Cookie and pixel data, described in <a href="#cookies">Section 4</a></li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="how-we-use">
+          <h2><span class="num">03</span>How I use this information</h2>
+          <ul>
+            <li>Respond to inquiries and prepare proposals or account reviews</li>
+            <li>Deliver and report on PPC, SEO, and SMM work under an active engagement</li>
+            <li>Set up and optimize campaigns on Google Ads, Meta Ads, and related platforms using access you grant</li>
+            <li>Send outreach, follow-ups, and appointment reminders by email or WhatsApp</li>
+            <li>Issue invoices and process payment</li>
+            <li>Understand which pages and case studies are useful, so the site stays relevant</li>
+            <li>Meet legal and tax obligations in the UAE</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="cookies">
+          <h2><span class="num">04</span>Cookies and tracking</h2>
+          <p>slickyads.com uses cookies and similar technologies for the following purposes:</p>
+          <table class="legal-table">
+            <tr><th>Purpose</th><th>Examples</th></tr>
+            <tr><td>Essential</td><td>Keeping the site functional and secure</td></tr>
+            <tr><td>Analytics</td><td>Google Analytics, to understand traffic and which content performs</td></tr>
+            <tr><td>Advertising / remarketing</td><td>Meta Pixel and Google Ads tag, to measure my own outreach campaigns and show relevant ads to past visitors</td></tr>
+          </table>
+          <p>You can control cookies through your browser settings. Blocking non-essential cookies won't stop you from using the site, but may limit how well I can measure what's working.</p>
+        </div>
+
+        <div class="legal-section" id="sharing">
+          <h2><span class="num">05</span>How I share information</h2>
+          <p>I don't sell your personal data. Information is shared only with:</p>
+          <ul>
+            <li>Advertising and analytics platforms — Google (Ads, Analytics) and Meta (Ads Manager), to the extent needed to run and measure campaigns</li>
+            <li>Service providers I use to run the business — hosting, workflow automation (n8n), CRM (Google Sheets–based), email delivery, and payment/invoicing tools — bound to use data only to provide their service</li>
+            <li>Legal or regulatory authorities, where required by UAE law</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="retention">
+          <h2><span class="num">06</span>Data retention</h2>
+          <p>I keep personal data only as long as it's needed: for the duration of an active client relationship plus a reasonable period afterward for accounting and tax records, and for leads or outreach contacts, until you ask me to stop or the contact goes inactive, whichever comes first.</p>
+        </div>
+
+        <div class="legal-section" id="security">
+          <h2><span class="num">07</span>Security</h2>
+          <p>I use reasonable measures to protect the data I hold — restricted access to client ad accounts and CRM data, secure hosting, and limiting access to what's needed to do the work. No method of storage or transmission is completely secure, and I can't guarantee absolute security.</p>
+        </div>
+
+        <div class="legal-section" id="rights">
+          <h2><span class="num">08</span>Your rights</h2>
+          <p>Subject to applicable law, you can ask to:</p>
+          <ul>
+            <li>Access the personal data I hold about you</li>
+            <li>Correct inaccurate or incomplete data</li>
+            <li>Delete your data, subject to legal or contractual retention needs</li>
+            <li>Object to or restrict certain processing, including outreach messages</li>
+            <li>Withdraw consent at any time, where processing relies on it</li>
+          </ul>
+          <p>To exercise any of these, contact me using the details in <a href="#contact">Section 11</a>. I may ask you to verify your identity first.</p>
+        </div>
+
+        <div class="legal-section" id="children">
+          <h2><span class="num">09</span>Children's privacy</h2>
+          <p>This site and my services are directed at businesses and are not intended for anyone under 18. I don't knowingly collect personal data from children. If you believe a child has shared data with me, please get in touch so I can remove it.</p>
+        </div>
+
+        <div class="legal-section" id="changes">
+          <h2><span class="num">10</span>Changes to this policy</h2>
+          <p>I may update this policy from time to time to reflect changes in how the site or business operates. The revised version will be posted here with an updated "Last updated" date. Material changes affecting active clients will be communicated directly.</p>
+        </div>
+
+        <div class="legal-section" id="contact">
+          <h2><span class="num">11</span>Contact</h2>
+          <p>Questions about this policy or a data request can go to:</p>
+          <div class="legal-contact">
+            <p style="font-family:'Space Grotesk',sans-serif; font-weight:600; color:var(--ink);">Asim Khan — Slicky Ads</p>
+            <p>Dubai, United Arab Emirates</p>
+            <p>Email: <a href="mailto:slickyads@gmail.com" style="color:var(--primary); font-weight:600;">slickyads@gmail.com</a></p>
+            <p>WhatsApp / Phone: <a href="tel:+971543599147" style="color:var(--primary); font-weight:600;">+971 54 359 9147</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="brand-block">
+        <div class="brand" style="text-decoration:none;">
+          <img src="assets/slickyads_logo1.png" alt="Footer Logo" class="brand-logo footer-logo">
+          <span class="name" style="color:#fff;">Asim Khan</span>
+        </div>
+        <p>Marketing Operations, Digital Project Lead, and AI Growth Operator running systems for businesses across Dubai and the GCC, while collaborating with US and remote clients worldwide.</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="case-studies">Case Studies</a></li>
+          <li><a href="blog">Blog</a></li>
+          <li><a href="contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:+971543599147">+971 54 359 9147</a></li>
+          <li><a href="mailto:slickyads@gmail.com">slickyads@gmail.com</a></li>
+          <li><a href="https://wa.me/971543599147" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://calendar.app.google/YNcuqpXbYwRLfmje9" target="_blank" rel="noopener">Book a call</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/slickyads/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://linkedin.com/in/asimkh" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://medium.com/@asimkh" target="_blank" rel="noopener">Medium</a></li>
+          <li><a href="work">Portfolio</a></li>
+          <li><a href="https://github.com/asimkh" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+       <span>© <span id="year"></span> Asim Khan · Dubai, UAE</span>
+      <span>Marketing Operations Manager &amp; AI Growth Operator</span>
+      <span><a href="privacy">Privacy</a> · <a href="terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/971543599147?text=Hi%20Asim%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" aria-label="Message on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" fill="#fff" opacity="0"/><path d="M17.47 14.38c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.83-.74-1.38-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.49.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.49.07-.74.35-.25.28-.97.95-.97 2.31 0 1.36.99 2.68 1.13 2.86.14.18 1.95 2.98 4.73 4.18.66.28 1.18.45 1.58.58.66.21 1.27.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z" fill="#fff"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18.15a8.14 8.14 0 01-4.15-1.14l-.3-.18-3.02.79.81-2.94-.19-.3A8.15 8.15 0 1112 20.15z" fill="#fff"/></svg>
+</a>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

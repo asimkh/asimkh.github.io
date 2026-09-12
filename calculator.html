@@ -509,17 +509,18 @@
             <!-- B2C Inputs -->
             <div id="b2c-inputs">
                 <div class="form-group">
-                    <label>Revenue Target</label>
-                    <input type="number" id="b2c-revenue-target" value="16000" oninput="calculate(true)">
+                    <label>Target Orders</label>
+                    <input type="number" id="b2c-orders-target" value="160" min="0" step="1" oninput="calculate(true)">
                 </div>
                 <div class="form-group">
                     <label>Average Order Value (AOV)</label>
-                    <input type="number" id="b2c-aov" value="100" oninput="calculate(true)">
+                    <input type="number" id="b2c-aov" value="100" min="0" step="0.01" oninput="calculate(true)">
                 </div>
                 <div class="form-group">
                     <label>Target CPA</label>
-                    <input type="number" id="b2c-cpa" value="25" oninput="calculate(true)">
+                    <input type="number" id="b2c-cpa" value="25" min="0.01" step="0.01" oninput="calculate(true)">
                 </div>
+                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:-4px;">Required ad budget = Target Orders × Target CPA</div>
             </div>
 
             <!-- B2B Inputs -->
@@ -542,7 +543,7 @@
 
             <!-- Budget Slider -->
             <div class="form-group">
-                <label>Estimated Total Budget Range: <strong id="slider-budget-val" style="color:white;">0</strong></label>
+                <label>Estimated Ad Budget: <strong id="slider-budget-val" style="color:white;">0</strong></label>
                 <input type="range" id="budget-slider" min="500" max="100000" step="250" oninput="syncSlider()">
             </div>
 
@@ -781,36 +782,41 @@
         const slider = document.getElementById('budget-slider');
 
         if (currentMode === 'B2C') {
-            const revenueTarget = parseFloat(document.getElementById('b2c-revenue-target').value) || 0;
-            const aov = parseFloat(document.getElementById('b2c-aov').value) || 1;
-            const cpa = parseFloat(document.getElementById('b2c-cpa').value) || 0;
+            const targetOrders = Math.max(0, parseInt(document.getElementById('b2c-orders-target').value, 10) || 0);
+            const aov = Math.max(0, parseFloat(document.getElementById('b2c-aov').value) || 0);
+            const cpa = Math.max(0, parseFloat(document.getElementById('b2c-cpa').value) || 0);
 
-            const ordersNeeded = Math.ceil(revenueTarget / aov);
-            const calculatedBudget = ordersNeeded * cpa;
+            // Order-led B2C model: target orders determine required ad budget.
+            const requiredBudget = targetOrders * cpa;
 
             if (overrideSlider) {
-                slider.value = calculatedBudget;
+                const minBudget = parseFloat(slider.min) || 0;
+                const maxBudget = parseFloat(slider.max) || Infinity;
+                slider.value = Math.min(Math.max(requiredBudget, minBudget), maxBudget);
             }
 
-            const currentBudget = parseFloat(slider.value);
+            const currentBudget = Math.max(0, parseFloat(slider.value) || 0);
             document.getElementById('slider-budget-val').innerText = currentBudget.toLocaleString();
 
-            const projectedOrders = currentBudget > 0 ? (currentBudget / cpa) : 0;
+            const projectedOrders = cpa > 0 ? currentBudget / cpa : 0;
             const projectedRevenue = projectedOrders * aov;
-            const roas = currentBudget > 0 ? (projectedRevenue / currentBudget).toFixed(2) : 0;
+            const roas = currentBudget > 0 ? projectedRevenue / currentBudget : 0;
 
-            const estTraffic = settings.customClicks !== null ? settings.customClicks : (projectedOrders / settings.b2cConvRate);
-            const estImpressions = settings.customImpressions !== null ? settings.customImpressions : Math.round(estTraffic / settings.b2cCTR);
-            const maxCPC = settings.customCPC !== null ? settings.customCPC : (cpa * settings.b2cConvRate);
-            const maxCPM = settings.customCPM !== null ? settings.customCPM : (maxCPC * settings.b2cCTR * 100);
+            const estTraffic = settings.customClicks !== null ? Math.max(0, settings.customClicks) :
+                (settings.b2cConvRate > 0 ? projectedOrders / settings.b2cConvRate : 0);
+            const estImpressions = settings.customImpressions !== null ? Math.max(0, settings.customImpressions) :
+                (settings.b2cCTR > 0 ? Math.round(estTraffic / settings.b2cCTR) : 0);
+            const maxCPC = settings.customCPC !== null ? Math.max(0, settings.customCPC) : (cpa * settings.b2cConvRate);
+            const maxCPM = settings.customCPM !== null ? Math.max(0, settings.customCPM) : (maxCPC * settings.b2cCTR * 100);
 
             document.getElementById('disp-total-revenue').innerText = Math.round(projectedRevenue).toLocaleString();
-            document.getElementById('disp-roi').innerText = roas + 'x ROAS';
+            document.getElementById('disp-roi').innerText = roas.toFixed(2) + 'x ROAS';
 
             renderFunnel([
                 { label: 'Impressions', value: Math.round(estImpressions).toLocaleString(), pct: 100 },
                 { label: 'Clicks (Traffic)', value: Math.round(estTraffic).toLocaleString(), pct: 70 },
-                { label: 'Orders Needed / Made', value: Math.round(projectedOrders).toLocaleString(), pct: 35 },
+                { label: 'Target Orders', value: targetOrders.toLocaleString(), pct: 35 },
+                { label: 'Projected Orders', value: projectedOrders.toFixed(1), pct: 25 },
                 { label: 'Max CPC', value: maxCPC.toFixed(2), pct: 20 },
                 { label: 'Max CPM', value: maxCPM.toFixed(2), pct: 10 }
             ]);

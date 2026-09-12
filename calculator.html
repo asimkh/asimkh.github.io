@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://slickyads.com/calculator">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ad Spend & ROI Estimator | Slicky Ads">
+    <meta property="og:description" content="Estimate ad spend, ROAS and campaign performance with Slicky Ads' free calculator.">
+    <meta property="og:image" content="https://slickyads.com/assets/services_calculator.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="1000">
+    <meta property="og:site_name" content="Slicky Ads">
+    <meta property="og:locale" content="en_AE">
+    <meta property="fb:app_id" content="8209133652481163">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ad Spend & ROI Estimator | Slicky Ads">
+    <meta name="twitter:description" content="Estimate ad spend, ROAS and campaign performance with Slicky Ads' free calculator.">
+    <meta name="twitter:image" content="https://slickyads.com/assets/services_calculator.png">
+    <link rel="canonical" href="https://slickyads.com/calculator">
+    <link rel="icon" type="image/png" href="https://slickyads.com/assets/slickyads_logo.png">
+    <title>Ad Spend & ROI Estimator | Slicky Ads</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-58ZPXKF');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Import Google Fonts for Open Sauce / Sans fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        @font-face {
+            font-family: 'Open Sauce One';
+            src: local('Open Sauce One'), local('OpenSauceOne-Bold');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --card-border: #1f293d;
+            --accent-blue: #2563eb;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --input-bg: #1f2937;
+            --light-bg: #fafafa;
+            --light-card: #ffffff;
+            --light-text: #111827;
+            --font-family: 'Open Sauce One', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* SITE HEADER */
+        .site-header {
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            font-family: 'Open Sauce One', var(--font-family);
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.3px;
+        }
+
+        .brand-logo img {
+            height: 36px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* MAIN APP CONTENT */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px 20px;
+            flex: 1;
+        }
+
+        .page-title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        h1 { font-size: 1.6rem; font-weight: 600; }
+        p.subtitle { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; }
+
+        .controls-bar {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .toggle-btn-group {
+            display: flex;
+            background: var(--input-bg);
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .toggle-btn.active {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .settings-btn {
+            background: var(--input-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .settings-btn:hover { background: #374151; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 850px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        input[type="text"], input[type="email"], input[type="number"], select {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 10px;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--accent-blue);
+            margin-top: 8px;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .channel-breakdown {
+            margin-top: 15px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .channel-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .channel-row:last-child { border-bottom: none; }
+
+        /* Funnel Progress Bars */
+        .funnel-stage {
+            margin-bottom: 14px;
+        }
+        .funnel-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+        .progress-bar-bg {
+            background: var(--input-bg);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            background: var(--accent-blue);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background: var(--light-bg);
+            color: var(--light-text);
+            padding: 50px 20px;
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+
+        .contact-grid {
+            max-width: 1160px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 850px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .contact-info p {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .info-list li {
+            font-size: 0.9rem;
+            color: #374151;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .direct-contact {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+
+        .direct-contact div { margin-bottom: 8px; }
+        .direct-contact strong { color: #111827; }
+
+        .contact-card {
+            background: var(--light-card);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #f3f4f6;
+        }
+
+        .contact-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+            color: #111827;
+        }
+
+        .contact-card p.form-sub {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .light-input {
+            background: #f9fafb !important;
+            border: 1px solid #d1d5db !important;
+            color: #111827 !important;
+            font-size: 0.85rem !important;
+        }
+
+        .light-label {
+            color: #374151 !important;
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+        }
+
+        .btn-submit {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover { background: #1d4ed8; }
+
+        /* Modal Settings */
+        .modal {
+            display: none;
+            position: fixed;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            width: 520px;
+            max-width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* SITE FOOTER */
+        .site-footer {
+            background: #070a12;
+            border-top: 1px solid var(--card-border);
+            padding: 30px 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58ZPXKF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+<!-- SITE HEADER WITH LOGO IMAGE AND SLICKY ADS TEXT -->
+<header class="site-header">
+    <div class="header-container">
+        <a href="https://slickyads.com/" class="brand-logo" target="_blank">
+            <img src="https://slickyads.com/assets/slickyads_logo.png" alt="Slicky Ads Icon">
+            <span>Slicky Ads</span>
+        </a>
+    </div>
+</header>
+
+<!-- MAIN APP CONTENT -->
+<main class="container">
+    <div class="page-title-bar">
+        <div>
+            <h1>Ad Spend & ROI Estimator</h1>
+            <p class="subtitle">Live simulation based on active campaign conversion benchmarks</p>
+        </div>
+        <div class="controls-bar">
+            <div class="toggle-btn-group">
+                <button class="toggle-btn active" id="btn-b2c" onclick="switchMode('B2C')">B2C Model</button>
+                <button class="toggle-btn" id="btn-b2b" onclick="switchMode('B2B')">B2B Model</button>
+            </div>
+            <button class="settings-btn" onclick="openModal()">⚙️ Metric Settings</button>
+        </div>
+    </div>
+
+    <div class="grid">
+        <!-- LEFT PANEL: CONTROLS & INPUTS -->
+        <div class="card">
+            <div class="card-title">Campaign Inputs</div>
+            
+            <!-- B2C Inputs -->
+            <div id="b2c-inputs">
+                <div class="form-group">
+                    <label>Revenue Target</label>
+                    <input type="number" id="b2c-revenue-target" value="16000" oninput="calculate(true)">
+                </div>
+                <div class="form-group">
+                    <label>Average Order Value (AOV)</label>
+                    <input type="number" id="b2c-aov" value="100" oninput="calculate(true)">
+                </div>
+                <div class="form-group">
+                    <label>Target CPA</label>
+                    <input type="number" id="b2c-cpa" value="25" oninput="calculate(true)">
+                </div>
+            </div>
+
+            <!-- B2B Inputs -->
+            <div id="b2b-inputs" style="display: none;">
+                <div class="form-group">
+                    <label>Target Leads</label>
+                    <input type="number" id="b2b-leads-target" value="100" oninput="calculate(true)">
+                </div>
+                <div class="form-group">
+                    <label>Cost Per Lead (CPL)</label>
+                    <input type="number" id="b2b-cpl" value="50" oninput="calculate(true)">
+                </div>
+                <div class="form-group">
+                    <label>Lead / Ticket Value</label>
+                    <input type="number" id="b2b-ticket-value" value="6250" oninput="calculate(true)">
+                </div>
+            </div>
+
+            <hr style="border-color: var(--card-border); margin: 20px 0;">
+
+            <!-- Budget Slider -->
+            <div class="form-group">
+                <label>Estimated Total Budget Range: <strong id="slider-budget-val" style="color:white;">0</strong></label>
+                <input type="range" id="budget-slider" min="500" max="100000" step="250" oninput="syncSlider()">
+            </div>
+
+            <div class="channel-breakdown">
+                <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 8px;">Channel Spend Split</div>
+                <div class="channel-row">
+                    <span>Meta (<span id="disp-meta-pct">60</span>%)</span>
+                    <strong id="disp-meta-spend">0</strong>
+                </div>
+                <div class="channel-row">
+                    <span>Google Ads (<span id="disp-google-pct">40</span>%)</span>
+                    <strong id="disp-google-spend">0</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: PROJECTION & FUNNEL -->
+        <div class="card">
+            <div class="card-title">30-Day Projection</div>
+            
+            <div style="margin-bottom: 20px;">
+                <label id="main-metric-label">Projected Revenue</label>
+                <div class="metric-value" id="disp-total-revenue">0</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+                    Estimated ROI / ROAS: <span id="disp-roi" style="color: var(--accent-orange); font-weight: bold;">4.0x</span>
+                </div>
+            </div>
+
+            <div class="card-title" style="font-size: 0.95rem; margin-top: 10px;">Funnel Breakdown</div>
+            <div id="funnel-container">
+                <!-- Dynamic Progress Bars Injected Here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- TURN YOUR AD SPEND INTO REAL RESULTS SECTION -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Turn Your Ad Spend Into Real Results</h2>
+                <p>Get a custom CPL, viewing-rate, and sales conversion projection built on your actual budget and price point. We map exactly where leads leak today.</p>
+                
+                <ul class="info-list">
+                    <li>✓ 30-minute growth & funnel audit</li>
+                    <li>✓ Competitor channel & strategy analysis</li>
+                    <li>✓ Custom pipeline & viewing projections</li>
+                    <li>✓ No obligation to proceed</li>
+                </ul>
+
+                <div class="direct-contact">
+                    <div>CALL / WHATSAPP: <strong>+971 50 835 5477</strong></div>
+                    <div>EMAIL: <strong>asim@slickyads.com</strong></div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h3>Start the Conversation</h3>
+                <p class="form-sub">Instant connection with Slicky Ads. We reply within 24 hours.</p>
+
+                <form onsubmit="event.preventDefault(); alert('Brief submitted to Slicky Ads!');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="light-label">FULL NAME *</label>
+                            <input type="text" class="light-input" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="light-label">COMPANY / PROJECT *</label>
+                            <input type="text" class="light-input" placeholder="Company Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="light-label">WORK EMAIL *</label>
+                            <input type="email" class="light-input" placeholder="email@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="light-label">WHATSAPP NUMBER *</label>
+                            <input type="text" class="light-input" placeholder="+971 50 XXX XXXX" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="light-label">SERVICES NEEDED *</label>
+                        <select class="light-input">
+                            <option>Google Ads Management</option>
+                            <option>Meta Ads (Facebook & Instagram)</option>
+                            <option>SEO Services</option>
+                            <option>eCommerce / Shopify Growth</option>
+                            <option>Social Media Management</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="light-label">MONTHLY AD SPEND *</label>
+                        <select class="light-input">
+                            <option>Not running ads yet</option>
+                            <option>Below 5,000</option>
+                            <option>5,000 – 15,000</option>
+                            <option>15,000 – 30,000</option>
+                            <option>30,000 – 75,000</option>
+                            <option>75,000+</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Send my Brief →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- METRIC SETTINGS MODAL -->
+<div class="modal" id="settings-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Custom Benchmark Metrics</h3>
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+        </div>
+        
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px;">
+            Input custom values for CPC, CPM, Clicks, or Impressions to override standard funnel formulas.
+        </p>
+
+        <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: var(--accent-blue);">Funnel Metric Inputs</h4>
+        <div class="settings-grid">
+            <div class="form-group">
+                <label>Max CPC</label>
+                <input type="number" id="set-custom-cpc" placeholder="Auto-calculated" step="0.01">
+            </div>
+            <div class="form-group">
+                <label>Max CPM</label>
+                <input type="number" id="set-custom-cpm" placeholder="Auto-calculated" step="0.01">
+            </div>
+            <div class="form-group">
+                <label>Clicks</label>
+                <input type="number" id="set-custom-clicks" placeholder="Auto-calculated">
+            </div>
+            <div class="form-group">
+                <label>Impressions</label>
+                <input type="number" id="set-custom-impressions" placeholder="Auto-calculated">
+            </div>
+        </div>
+
+        <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: var(--accent-blue); margin-top: 10px;">Channel Allocation</h4>
+        <div class="settings-grid">
+            <div class="form-group">
+                <label>Meta Share (%)</label>
+                <input type="number" id="set-meta-pct" value="60" oninput="updateSettings()">
+            </div>
+            <div class="form-group">
+                <label>Google Share (%)</label>
+                <input type="number" id="set-google-pct" value="40" oninput="updateSettings()">
+            </div>
+        </div>
+
+        <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: var(--accent-blue); margin-top: 10px;">B2B Conversion Benchmarks</h4>
+        <div class="settings-grid">
+            <div class="form-group">
+                <label>Lead Qualification Rate (%)</label>
+                <input type="number" id="set-b2b-qual-rate" value="40" oninput="updateSettings()">
+            </div>
+            <div class="form-group">
+                <label>Qualified Lead Close Rate (%)</label>
+                <input type="number" id="set-b2b-close-rate" value="8" oninput="updateSettings()">
+            </div>
+        </div>
+
+        <button class="settings-btn" style="width: 100%; justify-content: center; margin-top: 15px; background: var(--accent-blue);" onclick="saveAndApplyMetrics()">Save & Update Calculator</button>
+    </div>
+</div>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div>
+            © 2026 Slicky Ads. All rights reserved. Projections are estimations.
+        </div>
+        <div class="footer-links">
+            <a href="https://slickyads.com/" target="_blank">Services</a>
+            <a href="https://slickyads.com/about/policy" target="_blank">Privacy Policy</a>
+            <a href="https://slickyads.com/about/terms" target="_blank">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let currentMode = 'B2C'; 
+
+    let settings = {
+        metaPct: 60,
+        googlePct: 40,
+        b2cConvRate: 0.01,
+        b2cCTR: 0.01,
+        b2bQualRate: 0.40,
+        b2bCloseRate: 0.08,
+        customCPC: null,
+        customCPM: null,
+        customClicks: null,
+        customImpressions: null
+    };
+
+    function saveAndApplyMetrics() {
+        const cpcVal = parseFloat(document.getElementById('set-custom-cpc').value);
+        const cpmVal = parseFloat(document.getElementById('set-custom-cpm').value);
+        const clicksVal = parseFloat(document.getElementById('set-custom-clicks').value);
+        const impVal = parseFloat(document.getElementById('set-custom-impressions').value);
+
+        settings.customCPC = !isNaN(cpcVal) ? cpcVal : null;
+        settings.customCPM = !isNaN(cpmVal) ? cpmVal : null;
+        settings.customClicks = !isNaN(clicksVal) ? clicksVal : null;
+        settings.customImpressions = !isNaN(impVal) ? impVal : null;
+
+        updateSettings();
+        closeModal();
+    }
+
+    function switchMode(mode) {
+        currentMode = mode;
+        document.getElementById('btn-b2c').classList.toggle('active', mode === 'B2C');
+        document.getElementById('btn-b2b').classList.toggle('active', mode === 'B2B');
+        
+        document.getElementById('b2c-inputs').style.display = mode === 'B2C' ? 'block' : 'none';
+        document.getElementById('b2b-inputs').style.display = mode === 'B2B' ? 'block' : 'none';
+
+        document.getElementById('main-metric-label').innerText = mode === 'B2C' ? 'Projected Revenue' : 'Projected Closed Value';
+
+        calculate(true);
+    }
+
+    function syncSlider() {
+        calculate(false);
+    }
+
+    function calculate(overrideSlider = false) {
+        const slider = document.getElementById('budget-slider');
+
+        if (currentMode === 'B2C') {
+            const revenueTarget = parseFloat(document.getElementById('b2c-revenue-target').value) || 0;
+            const aov = parseFloat(document.getElementById('b2c-aov').value) || 1;
+            const cpa = parseFloat(document.getElementById('b2c-cpa').value) || 0;
+
+            const ordersNeeded = Math.ceil(revenueTarget / aov);
+            const calculatedBudget = ordersNeeded * cpa;
+
+            if (overrideSlider) {
+                slider.value = calculatedBudget;
+            }
+
+            const currentBudget = parseFloat(slider.value);
+            document.getElementById('slider-budget-val').innerText = currentBudget.toLocaleString();
+
+            const projectedOrders = currentBudget > 0 ? (currentBudget / cpa) : 0;
+            const projectedRevenue = projectedOrders * aov;
+            const roas = currentBudget > 0 ? (projectedRevenue / currentBudget).toFixed(2) : 0;
+
+            const estTraffic = settings.customClicks !== null ? settings.customClicks : (projectedOrders / settings.b2cConvRate);
+            const estImpressions = settings.customImpressions !== null ? settings.customImpressions : Math.round(estTraffic / settings.b2cCTR);
+            const maxCPC = settings.customCPC !== null ? settings.customCPC : (cpa * settings.b2cConvRate);
+            const maxCPM = settings.customCPM !== null ? settings.customCPM : (maxCPC * settings.b2cCTR * 100);
+
+            document.getElementById('disp-total-revenue').innerText = Math.round(projectedRevenue).toLocaleString();
+            document.getElementById('disp-roi').innerText = roas + 'x ROAS';
+
+            renderFunnel([
+                { label: 'Impressions', value: Math.round(estImpressions).toLocaleString(), pct: 100 },
+                { label: 'Clicks (Traffic)', value: Math.round(estTraffic).toLocaleString(), pct: 70 },
+                { label: 'Orders Needed / Made', value: Math.round(projectedOrders).toLocaleString(), pct: 35 },
+                { label: 'Max CPC', value: maxCPC.toFixed(2), pct: 20 },
+                { label: 'Max CPM', value: maxCPM.toFixed(2), pct: 10 }
+            ]);
+
+        } else if (currentMode === 'B2B') {
+            const targetLeads = parseFloat(document.getElementById('b2b-leads-target').value) || 0;
+            const cpl = parseFloat(document.getElementById('b2b-cpl').value) || 0;
+            const ticketValue = parseFloat(document.getElementById('b2b-ticket-value').value) || 0;
+
+            const calculatedBudget = targetLeads * cpl;
+
+            if (overrideSlider) {
+                slider.value = calculatedBudget;
+            }
+
+            const currentBudget = parseFloat(slider.value);
+            document.getElementById('slider-budget-val').innerText = currentBudget.toLocaleString();
+
+            const totalLeads = cpl > 0 ? (currentBudget / cpl) : 0;
+            const qualLeads = totalLeads * settings.b2bQualRate;
+            const closedDeals = qualLeads * settings.b2bCloseRate;
+            const totalRevenue = closedDeals * ticketValue;
+            const roi = currentBudget > 0 ? (totalRevenue / currentBudget).toFixed(2) : 0;
+
+            document.getElementById('disp-total-revenue').innerText = Math.round(totalRevenue).toLocaleString();
+            document.getElementById('disp-roi').innerText = roi + 'x ROI';
+
+            renderFunnel([
+                { label: 'Total Leads', value: Math.round(totalLeads).toLocaleString(), pct: 100 },
+                { label: 'Qualified Leads (' + (settings.b2bQualRate * 100) + '%)', value: Math.round(qualLeads).toLocaleString(), pct: settings.b2bQualRate * 100 },
+                { label: 'Closed Deals (' + (settings.b2bCloseRate * 100) + '%)', value: closedDeals.toFixed(1), pct: (settings.b2bQualRate * settings.b2bCloseRate * 100) }
+            ]);
+        }
+
+        const budget = parseFloat(slider.value);
+        const metaSpend = budget * (settings.metaPct / 100);
+        const googleSpend = budget * (settings.googlePct / 100);
+
+        document.getElementById('disp-meta-spend').innerText = Math.round(metaSpend).toLocaleString();
+        document.getElementById('disp-google-spend').innerText = Math.round(googleSpend).toLocaleString();
+    }
+
+    function renderFunnel(stages) {
+        const container = document.getElementById('funnel-container');
+        container.innerHTML = '';
+
+        stages.forEach(stage => {
+            const widthPct = Math.min(Math.max(stage.pct, 5), 100);
+            const html = `
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span>${stage.label}</span>
+                        <strong>${stage.value}</strong>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: ${widthPct}%;"></div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += html;
+        });
+    }
+
+    function openModal() {
+        document.getElementById('settings-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('settings-modal').style.display = 'none';
+    }
+
+    function updateSettings() {
+        settings.metaPct = parseFloat(document.getElementById('set-meta-pct').value) || 0;
+        settings.googlePct = parseFloat(document.getElementById('set-google-pct').value) || 0;
+        settings.b2bQualRate = (parseFloat(document.getElementById('set-b2b-qual-rate').value) || 0) / 100;
+        settings.b2bCloseRate = (parseFloat(document.getElementById('set-b2b-close-rate').value) || 0) / 100;
+
+        document.getElementById('disp-meta-pct').innerText = settings.metaPct;
+        document.getElementById('disp-google-pct').innerText = settings.googlePct;
+
+        calculate();
+    }
+
+    calculate(true);
+</script>
+</body>
+</html>
